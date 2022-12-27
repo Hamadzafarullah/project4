@@ -1,4 +1,4 @@
-
+from .models import Bodypart
 from django.shortcuts import render
 from django.views import View  
 from django.views.generic.base import TemplateView
@@ -9,4 +9,12 @@ class Home(TemplateView):
 
 class About(TemplateView):
     template_name = "about.html"
+
+class BodypartList(TemplateView):
+    template_name = "bodypart_list.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["bodyparts"] = Bodypart.objects.all() 
+        return context
 

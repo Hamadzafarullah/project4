@@ -1,0 +1,35 @@
+{% extends 'base.html' %} {% block content %}
+
+<h1 class="title">Choose a Bodypart</h1>
+
+<form class="mb-5" method="get">
+  <div class="field has-addons">
+    <div class="control">
+
+      <input class="input" type="text" name="name" placeholder="name" />
+    </div>
+    <div class="control">
+      <input class="button is-success" type="submit" value="Search" />
+    </div>
+  </div>
+
+  <a class="button is-dark" href="{% url 'bodypart_list' %}">Clear Search</a>
+</form>
+<div class="gallery">
+  {% for bodypart in bodyparts %}
+  <a href="">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-square">
+          <img src="{{bodypart.img}}" alt="{{bodypart.name}}" />
+        </figure>
+      </div>
+      <div class="card-header">
+        <p class="card-header-title">{{bodypart.name}}</p>
+      </div>
+    </div>
+  </a>
+  {% endfor %}
+</div>
+
+{% endblock %}
