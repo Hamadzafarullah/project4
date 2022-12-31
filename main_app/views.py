@@ -2,7 +2,7 @@ from .models import Bodypart
 from django.shortcuts import render
 from django.views import View  
 from django.views.generic.base import TemplateView
-
+from django.views.generic import DetailView
 
 class Home(TemplateView):
     template_name = "home.html"
@@ -18,3 +18,6 @@ class BodypartList(TemplateView):
         context["bodyparts"] = Bodypart.objects.all() 
         return context
 
+class BodypartInfo(DetailView):
+    model = Bodypart
+    template_name = "bodypart_info.html"

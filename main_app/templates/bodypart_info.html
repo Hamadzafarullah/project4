@@ -1,0 +1,28 @@
+{% extends 'base.html' %} 
+{% block content %}
+<div class="info__img">
+    <img src="{{bodypart.img}}" alt="{{bodypart.name}}" />
+</div>
+
+
+<div class="info__name">
+   
+    <h1 class="title">{{bodypart.name}}</h1>
+
+</div>
+
+
+<div class="info__container">
+    <div class="buttons">
+        <a href="" class="button is-info">
+                Add Workouts For This Bodypart
+        </a>
+        
+    </div>
+    <div class="info__about">
+        <h4 class="title is-4"> benefits</h4>
+        <p>{{bodypart.benefits}}</p>
+    </div>
+</div>
+
+{% endblock %}
