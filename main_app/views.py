@@ -1,8 +1,9 @@
-from .models import Bodypart
+from .models import Bodypart, Workout
 from django.shortcuts import render
 from django.views import View  
 from django.views.generic.base import TemplateView
 from django.views.generic import DetailView
+from django.views.generic.edit import CreateView
 
 class Home(TemplateView):
     template_name = "home.html"
@@ -21,3 +22,9 @@ class BodypartList(TemplateView):
 class BodypartInfo(DetailView):
     model = Bodypart
     template_name = "bodypart_info.html"
+
+class WorkoutCreate(CreateView):
+    model = Workout
+    fields = ['name', 'Instructions', 'bodypart']
+    template_name = "workout_create.html"
+    success_url = "/workouts/"

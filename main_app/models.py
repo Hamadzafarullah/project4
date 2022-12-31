@@ -11,3 +11,13 @@ class Bodypart(models.Model):
 
     class Meta:
         ordering = ['name']
+
+class Workout(models.Model):
+
+    name = models.CharField(max_length=100)
+    Instructions = models.TextField(max_length=500)
+    bodypart = models.ForeignKey(Bodypart, on_delete=models.CASCADE, related_name='workout')
+
+
+    def str(self):
+        return self.name
