@@ -1,5 +1,5 @@
 body {
-    background-color: #0037ff;
+    background-color: #6dff99;
     color: #ffffff;
     min-height: 100vh;
   }
@@ -76,3 +76,21 @@ body {
   .info__container {
     margin-top: 500px;
   }
+  .info__workouts {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.workout {
+    width: 100%;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 0.1fr 3fr 1fr;
+    border-radius: 5px;
+}
+
+.workout:hover {
+    background-color: hsla(0, 0%, 100%, 0.1);
+    cursor: pointer;
+}
