@@ -20,15 +20,15 @@ class BodypartList(TemplateView):
         context["bodyparts"] = Bodypart.objects.all() 
         return context
 
-class BodypartInfo(DetailView):
+class Bodypartinfo(DetailView):
     model = Bodypart
     template_name = "bodypart_info.html"
 
-# class WorkoutCreate(CreateView):
-#     model = Workout
-#     fields = ['name', 'Instructions', 'bodypart']
-#     template_name = "workout_create.html"
-#     success_url = "/workouts/"
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["schedules"] = Schedule.objects.all()
+        return context
+
 
 class WorkoutCreate(View):
 
@@ -47,6 +47,20 @@ class ScheduleList(TemplateView):
         context["schedule"] = Schedule.objects.all()
         return context
 
+
+class ScheduleWorkoutAssoc(View):
+
+    def get(self, request, pk, workout_pk):
+
+        assoc = request.GET.get("assoc")
+        if assoc == "remove":
+
+
+            Schedule.objects.get(pk=pk).workouts.remove(workout_pk)
+        if assoc == "add":
+
+            Schedule.objects.get(pk=pk).workouts.add(workout_pk)
+        return redirect('home')
 
 
 # class WorkoutUpdate(UpdateView):

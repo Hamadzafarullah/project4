@@ -8,4 +8,5 @@ urlpatterns = [
     path('workouts/<int:pk>/', views.BodypartInfo.as_view(), name="bodypart_info"),
     path('workouts/addworkout/<int:pk>/', views.WorkoutCreate.as_view(), name="workout_create"),
     path('schedules/',views.ScheduleList.as_view(), name='schedule_list'),
+    path('schedules/<int:pk>/workouts/<int:workout_pk>/', views.ScheduleWorkoutAssoc.as_view(), name="schedule_workout_assoc"),
 ]

@@ -3,17 +3,25 @@
 <div class="schedules">
     {% for schedule in schedule %}
 
-        <div class="playlist mb-5">
+        <div class="workouts mb-5">
             <h3 class="title is-3 has-text-success">{{schedule.title}}</h3>
             <hr />
 
             {% for workout in schedule.workouts.all %}
 
-                <div class="workouts">
-                    <span>{{forloop.counter}}</span>
-                    <span><b>{{workout.name}}</b></span>
+        <div class="workouts">
+                <span>{{forloop.counter}}</span>
+                <span><b>{{workout.name}}</b></span>
 
-                </div>
+                <span>
+
+                    <a href="{% url 'schedule_workout_assoc' schedule.pk workout.pk %}?assoc=remove" class="button is-danger is-outlined">
+                <span class="icon is-small">
+            <i class="fas fa-times"></i>
+                </span>
+                    </a>
+                </span>
+        </div>
 
             {% endfor %}
         </div>
