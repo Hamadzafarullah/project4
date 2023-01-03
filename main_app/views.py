@@ -57,26 +57,6 @@ class ScheduleWorkoutAssoc(View):
             Schedule.objects.get(pk=pk).workouts.remove(workout_pk)
         if assoc == "add":
             Schedule.objects.get(pk=pk).workouts.add(workout_pk)
-        return redirect('home')
+        return redirect('/schedules')
 
 
-# class WorkoutUpdate(UpdateView):
-#     model = Workout
-#     fields = ['name', 'Instructions', 'bodypart']
-#     template_name = "workout_update.html"
-#     success_url = "/workouts/"
-
-# class WorkoutDelete(DeleteView):
-#     def delete(self, request, pk):
-#     model = Workout
-#     template_name = "workout_delete_confirmation.html"
-#     success_url = "/workouts/"
-
-# class WorkoutDelete(View):
-
-#     def delete(self, request, pk):
-#         name= request.GET.get("name")
-#         length = request.GET.get("Instructions")
-#         bodypart = Bodypart.objects.get(pk=pk)
-#         Workout.objects.remove(name=name, Instructions=Instructions, bodypart=bodypart)
-#         return redirect('bodypart_info', pk=pk)
