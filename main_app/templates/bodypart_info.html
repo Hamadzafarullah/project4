@@ -15,7 +15,7 @@
 <div class="info__container">
  
     <div class="info__about">
-        <h4 class="title is-4"> benefits</h4>
+        <h4 class="title is-4"> Benefits</h4>
         <p>{{bodypart.benefits}}</p>
     </div>
 
@@ -55,6 +55,34 @@
                 <span>{{workouts.Instructions}}</span>
                
             </div>
+            <span>
+                <div class="dropdown">
+                  <div class="dropdown-trigger">
+                    <button
+                      class="button"
+                      aria-haspopup="true"
+                      aria-controls="dropdown-menu"
+                    >
+                      <span>Add to Schedule</span>
+                      <span class="icon is-small">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                      </span>
+                    </button>
+                  </div>
+                  <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                    <div class="dropdown-content">
+                      {% for schedule in schedule %}
+      
+                      <a href="{% url 'schedule_workout_assoc' schedule.pk workouts.pk %}?assoc=add"
+                        class="dropdown-item"
+                      >
+                        {{schedule.title}}
+                      </a>
+                      {% endfor %}
+                    </div>
+                  </div>
+                </div>
+              </span>
         {% empty %}
             <article class="message">
                 <div class="message-header">
