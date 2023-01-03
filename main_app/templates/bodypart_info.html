@@ -13,14 +13,7 @@
 
 
 <div class="info__container">
-    <div class="buttons">
-        <a href="{% url 'workout_create' bodypart.pk %}" class="button is-info">
-                Add Workouts For This Bodypart
-        </a>
-        <a href="{% url 'workout_update' bodypart.pk %}" class="button is-success">
-             updates Workouts For Bodypart
-        </a>
-    </div>
+ 
     <div class="info__about">
         <h4 class="title is-4"> benefits</h4>
         <p>{{bodypart.benefits}}</p>
@@ -28,12 +21,39 @@
 
     <div class="info__workouts mb-5">
         <h3 class="title is-3">Workouts</h3>
+        <form class="mb-5" action="{% url 'workout_create' bodypart.pk %}" method="post">
+            {% csrf_token %}
+            <div class="field has-addons">
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="name"
+                        placeholder="Name"
+                        required
+                    />
+                </div>
+                <div class="control">
+                    <input
+                        class="input"
+                        type="text"
+                        name="Instructions"
+                        placeholder="Instructions"
+
+                    />
+                </div>
+                <div class="control">
+                    <input class="button is-primary" type="submit" value="Add Workout" />
+                </div>
+            </div>
+        </form>
 
         {% for workouts in bodypart.workout.all %}
             <div class="workout">
                 <span>{{forloop.counter}}</span>
                 <span><b>{{workouts.name}}</b></span>
                 <span>{{workouts.Instructions}}</span>
+               
             </div>
         {% empty %}
             <article class="message">
