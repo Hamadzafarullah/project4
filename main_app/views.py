@@ -17,7 +17,7 @@ class BodypartList(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["bodyparts"] = Bodypart.objects.all() 
+        context["bodyparts"] = Bodypart.objects.filter(user=self.request.user)
         return context
 
 class BodypartInfo(DetailView):
@@ -38,6 +38,14 @@ class WorkoutCreate(View):
         bodypart = Bodypart.objects.get(pk=pk)
         Workout.objects.create(name=name, Instructions=Instructions, bodypart=bodypart)
         return redirect('bodypart_info', pk=pk)
+
+     def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super(WorkoutCreate, self).form_valid(form)
+
+    def get_success_url(self):
+        print(self.kwargs)
+        return reverse('bodypart_info', kwargs={'pk': self.object.pk})
 
 class ScheduleList(TemplateView):
     template_name = 'schedule_list.html'
