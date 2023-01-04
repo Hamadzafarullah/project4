@@ -5,6 +5,9 @@ from django.views.generic import DetailView
 from django.views.generic.edit import CreateView, UpdateView 
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.utils.decorators import method_decorator
+
 
 
 class Home(TemplateView):
@@ -13,6 +16,7 @@ class Home(TemplateView):
 class About(TemplateView):
     template_name = "about.html"
 
+@method_decorator(login_required, name='dispatch')
 class BodypartList(TemplateView):
     template_name = "bodypart_list.html"
 
@@ -48,6 +52,7 @@ class WorkoutCreate(View):
         print(self.kwargs)
         return reverse('bodypart_info', kwargs={'pk': self.object.pk})
 
+@method_decorator(login_required, name='dispatch')
 class ScheduleList(TemplateView):
     template_name = 'schedule_list.html'
 
