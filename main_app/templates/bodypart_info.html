@@ -7,20 +7,20 @@
 
 <div class="info__name">
    
-    <h1 class="title">{{bodypart.name}}</h1>
+    <h1 class="title has-text-black">{{bodypart.name}}</h1>
 
 </div>
 
 
-<div class="info__container">
+<div class="info__container ">
  
-    <div class="info__about">
-        <h4 class="title is-4"> Benefits</h4>
+    <div class="info__about has-text-white">
+        <h4 class="title is-4 has-text-white"> Benefits</h4>
         <p>{{bodypart.benefits}}</p>
     </div>
 
     <div class="info__workouts mb-5">
-        <h3 class="title is-3">Workouts</h3>
+        <h3 class="title is-3 has-text-white">Workouts</h3>
         <form class="mb-5" action="{% url 'workout_create' bodypart.pk %}" method="post">
             {% csrf_token %}
             <div class="field has-addons">
@@ -33,7 +33,7 @@
                         required
                     />
                 </div>
-                <div class="control">
+                <div class="control ">
                     <input
                         class="input"
                         type="text"
@@ -49,7 +49,7 @@
         </form>
 
         {% for workouts in bodypart.workout.all %}
-            <div class="workout">
+            <div class="workout has-text-white">
                 <span>{{forloop.counter}}</span>
                 <span><b>{{workouts.name}}</b></span>
                 <span>{{workouts.Instructions}}</span>
