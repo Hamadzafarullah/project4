@@ -25,11 +25,10 @@
             <div class="navbar-menu navbar-start">
                 <a class="navbar-item" href="/workouts">Workouts</a>
                 <a class="navbar-item" href="/schedules">Schedule</a>
+                <a class="navbar-item" href="/about">About</a> 
             </div>
             
-            <div class="navbar-menu navbar-end">
-                <a class="navbar-item" href="/about">About</a>           
-            </div>
+           
             {% if user.is_authenticated %}
                 <div class="navbar-menu navbar-end">
                     <span class="navbar-item">Welcome: {{user.username}}</span>

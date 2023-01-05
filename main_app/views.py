@@ -7,7 +7,7 @@ from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
-
+from django.views import View
 
 
 class Home(TemplateView):
@@ -35,7 +35,7 @@ class BodypartInfo(DetailView):
         return context
 
 
-class WorkoutCreate(View):
+class WorkoutCreate(CreateView):
 
     def post(self, request, pk):
         name = request.POST.get("name")
@@ -44,13 +44,6 @@ class WorkoutCreate(View):
         Workout.objects.create(name=name, Instructions=Instructions, bodypart=bodypart)
         return redirect('bodypart_info', pk=pk)
 
-     def form_valid(self, form):
-        form.instance.user = self.request.user
-        return super(WorkoutCreate, self).form_valid(form)
-
-    def get_success_url(self):
-        print(self.kwargs)
-        return reverse('bodypart_info', kwargs={'pk': self.object.pk})
 
 @method_decorator(login_required, name='dispatch')
 class ScheduleList(TemplateView):
@@ -88,7 +81,7 @@ class Signup(View):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect("artist_list")
+            return redirect("bodypart_list")
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
