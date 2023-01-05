@@ -1,6 +1,6 @@
 GymApp
 
-this webpage is for the user to keep track and plan out thier workouts it also allows you to add in workouts.there another feature to add or remove workouts from there schedule.
+This website helps users to plan out their workouts and keep track of them. Workouts can also be added. Also you can add or remove workouts from users schedule.
 
 Deployment
 
