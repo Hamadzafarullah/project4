@@ -91,6 +91,6 @@ body {
 }
 
 .workout:hover {
-    background-color: hsla(0, 0%, 100%, 0.1);
+    background-color: hsla(0, 100%, 50%, 0.1);
     cursor: pointer;
 }
