@@ -1,6 +1,13 @@
 GymApp
 
-This website helps users to plan out their workouts and keep track of them. Workouts can also be added. Also you can add or remove workouts from users schedule.
+A website where users who want to start or need support with their fitness journey can learn about specific workouts for each bodypart, create a schedule, and add them to their routine.
+
+User stories
+
+User is introduced to the website and needs to sign up to browse different workouts. Once signed up/logged in user can then have access to all the workouts and decide which one user wants to add on to their routine. User has option to delete and create new routine and workouts as well.
+
+Check it Out!
+https://django-gym-app.herokuapp.com/
 
 Deployment
 
