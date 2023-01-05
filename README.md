@@ -9,31 +9,31 @@
 ## workouts and decide which one user wants to add on to their routine. User has option to delete and create new routine and workouts as well.
 
 # Check it Out!
-## https://django-gym-app.herokuapp.com/
+ https://django-gym-app.herokuapp.com/
 
-# Deployment
+##  Deployment
 
-## Used Heroku 
+ Used Heroku 
 
-# Prerequisites/Installing
+##  Prerequisites/Installing
 
-## Need postgres installed
-## pipenv install django
-## Need python
-## Need pipenv installed
+Need postgres installed
+pipenv install django
+Need python
+Need pipenv installed
 
-# Technologies used
+## Technologies used
 
-## python
-## django
-## bulma
-## psql
-## Html
-## css
+python
+django
+bulma
+psql
+Html
+css
 
 
 
-# Acknowledgments resources
+## Acknowledgments resources
 
 https://bulma.io/documentation/components/navbar/ https://bulma.io/documentation/form/general/ https://bulma.io/documentation/layout/footer/ https://bulma.io/documentation/layout/level/
 https://www.django-rest-framework.org/api-guide/views/ 
